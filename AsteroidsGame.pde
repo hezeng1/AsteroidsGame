@@ -1,17 +1,97 @@
 SpaceShip nyes = new SpaceShip();
-
+Stars [] balls;
+boolean leftPressed = false;
+boolean rightPressed = false; 
+boolean upPressed = false;
 public void setup() 
 {
   size(500,500);
+  balls = new Stars[500];
+  for(int i = 1; i<balls.length; i++)
+  {
+    balls[i] = new Stars();
+  }
 }
 public void draw() 
 {
+  background(0);
+  for(int l = 1; l<balls.length; l++)
+  {
+    stroke(1);
+    balls[l].show();
+  }
+  if(upPressed == true)
+  {
+    nyes.accelerate(0.2);
+  }
+  if(rightPressed == true)
+  {
+    nyes.rotate(15);
+  }
+  if(leftPressed == true)
+  {
+    nyes.rotate(-15);
+  }
   nyes.show();
+  nyes.move();
+}
+public void keyPressed()
+{
+   if(keyCode == UP)
+   {
+     upPressed = true;
+   }
+   if(keyCode == RIGHT)
+   {
+     rightPressed = true;
+   }
+   if(keyCode == LEFT)
+   {
+     leftPressed = true;
+   }
+   if(keyCode == DOWN)
+   {
+    nyes.setX((int)(Math.random()*500));
+    nyes.setY((int)(Math.random()*500));
+    nyes.setDirectionX(0);
+    nyes.setDirectionY(0);
+    nyes.setPointDirection((int)(Math.random()*360));
+   }
+}
+public void keyReleased()
+{
+   if(keyCode == UP)
+   {
+     upPressed = false;
+   }
+   if(keyCode == RIGHT)
+   {
+     rightPressed = false;
+   } 
+   if(keyCode == LEFT)
+   {
+     leftPressed = false; 
+   }
+}
+class Stars 
+{
+  private int myX,myY;
+  public Stars()
+  {
+    myX = (int)(Math.random()*500);
+    myY = (int)(Math.random()*500);
+  }
+  public void show()
+  {
+    fill(255,255,0);
+    ellipse(myX,myY,2,2);
+  }
 }
 class SpaceShip extends Floater  
 {   
    SpaceShip()
    {
+    myColor = 255;
     corners = 3;
     xCorners = new int[corners];
     yCorners = new int[corners];
