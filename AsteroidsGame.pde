@@ -84,7 +84,7 @@ class Stars
   public void show()
   {
     fill(255,255,0);
-    ellipse(myX,myY,2,2);
+    ellipse(myX,myY,3,3);
   }
 }
 class SpaceShip extends Floater  
