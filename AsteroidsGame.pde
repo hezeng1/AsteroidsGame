@@ -26,6 +26,11 @@ public void draw()
     stroke(1);
     balls[l].show();
   }
+  for (int i = 0; i < sacks.size(); i++) {
+    if(dist(nyes.getX(),nyes.getY(),sacks.get(i).getX(),sacks.get(i).getY())<20) {
+      sacks.remove(i);
+    }
+  }
   if(upPressed == true)
   {
     nyes.accelerate(0.2);
@@ -45,6 +50,7 @@ public void draw()
     sacks.get(z).show();
     sacks.get(z).move();
   }
+  
 }
 public void keyPressed()
 {
@@ -134,28 +140,28 @@ class Asteroid extends Floater
     corners = 11;
     xCorners = new int[corners];
     yCorners = new int[corners];
-    xCorners[0] = 0;
-    yCorners[0] = 6;
-    xCorners[1] = 6;
-    yCorners[1] = 5; 
-    xCorners[2] = 7;
-    yCorners[2] = 3; 
-    xCorners[3] = 7;
-    yCorners[3] = -3; 
-    xCorners[4] = 6;
-    yCorners[4] = -5;
-    xCorners[5] = 0;
-    yCorners[5] = -6;
-    xCorners[6] = -6;
-    yCorners[6] = -5;
-    xCorners[7] = -7;
-    yCorners[7] = -3; 
-    xCorners[8] = -7;
-    yCorners[8] = 3;
-    xCorners[9] = -6;
-    yCorners[9] = 5; 
-    xCorners[10] = 0;
-    yCorners[10] = 6;  
+    xCorners[0] = 2;
+    yCorners[0] = 8;
+    xCorners[1] = 8;
+    yCorners[1] = 7; 
+    xCorners[2] = 9;
+    yCorners[2] = 5; 
+    xCorners[3] = 9;
+    yCorners[3] = -5; 
+    xCorners[4] = 8;
+    yCorners[4] = -7;
+    xCorners[5] = 2;
+    yCorners[5] = -8;
+    xCorners[6] = -8;
+    yCorners[6] = -7;
+    xCorners[7] = -9;
+    yCorners[7] = -5; 
+    xCorners[8] = -9;
+    yCorners[8] = 5;
+    xCorners[9] = -8;
+    yCorners[9] = 7; 
+    xCorners[10] = 2;
+    yCorners[10] = 8;  
     myDirectionX = (Math.random()*3-1.5);
     myDirectionY = (Math.random()*3-1.5);
     myCenterX = (Math.random()*width);
