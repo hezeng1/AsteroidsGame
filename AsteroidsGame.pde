@@ -27,11 +27,6 @@ public void draw()
     stroke(1);
     balls[l].show();
   }
-  for (int h = 0; h < sacks.size(); h++) {
-    d = dist(sacks.get(h).getX(),sacks.get(h).getY(),nyes.getX(),nyes.getY());
-    if(d<20)
-      sacks.remove(h);
-  }
   if(upPressed == true)
   {
     nyes.accelerate(0.2);
@@ -50,6 +45,11 @@ public void draw()
   {
     sacks.get(z).show();
     sacks.get(z).move();
+  }
+  for (int h = 0; h < sacks.size(); h++) {
+    d = dist(sacks.get(h).getX(),sacks.get(h).getY(),nyes.getX(),nyes.getY());
+    if(d<20)
+      sacks.remove(h);
   }
   
 }
