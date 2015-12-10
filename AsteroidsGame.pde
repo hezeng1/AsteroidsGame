@@ -22,6 +22,11 @@ public void setup()
 public void draw() 
 {
   background(0);
+  for (int h = 0; h < sacks.size(); h++) {
+    d = dist(sacks.get(h).getX(),sacks.get(h).getY(),nyes.getX(),nyes.getY());
+    if(d<20)
+      sacks.remove(h);
+  }
   for(int l = 0; l<balls.length; l++)
   {
     stroke(1);
@@ -46,12 +51,6 @@ public void draw()
     sacks.get(z).show();
     sacks.get(z).move();
   }
-  for (int h = 0; h < sacks.size(); h++) {
-    d = dist(sacks.get(h).getX(),sacks.get(h).getY(),nyes.getX(),nyes.getY());
-    if(d<20)
-      sacks.remove(h);
-  }
-  
 }
 public void keyPressed()
 {
