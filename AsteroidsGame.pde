@@ -4,6 +4,7 @@ Stars [] balls;
  boolean leftPressed = false;
 boolean rightPressed = false; 
 boolean upPressed = false;
+float d; 
 public void setup() 
 {
   size(500,500);
@@ -26,10 +27,10 @@ public void draw()
     stroke(1);
     balls[l].show();
   }
-  for (int i = 0; i < sacks.size(); i++) {
-    if(dist(nyes.getX(),nyes.getY(),sacks.get(i).getX(),sacks.get(i).getY())<20) {
-      sacks.remove(i);
-    }
+  for (int h = 0; h < sacks.size(); h++) {
+    d = dist(sacks.get(h).getX(),sacks.get(h).getY(),nyes.getX(),nyes.getY());
+    if(d<20)
+      sacks.remove(h);
   }
   if(upPressed == true)
   {
@@ -203,6 +204,7 @@ public void move ()   //move the floater in the current direction of travel
   public void setPointDirection(int degrees){myPointDirection = degrees;}
   public double getPointDirection(){return(double)myPointDirection;}
 }
+//class Bullet extends Floater{}
 
 abstract class Floater //Do NOT modify the Floater class! Make changes in the SpaceShip class 
 {   
